@@ -39,7 +39,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
 
                 <div id="klantenGrid">
                     <?php
-                    $sql = "SELECT * FROM klanten";
+                    $sql = "SELECT * FROM klanten ORDER BY naam";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {

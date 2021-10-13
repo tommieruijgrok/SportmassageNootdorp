@@ -69,21 +69,21 @@ include "include/head.php";
                 <div class="gegevensIcon">
                     <i class="fas fa-inbox"></i>
                 </div>
-                <p><?php echo $klantEmail ?></p>
+                <p><?php if($klantEmail!=''){ echo $klantEmail; } else { echo "---"; }  ?></p>
             </div>
             <div class="gegevensEl">
 
                 <div class="gegevensIcon">
                     <i class="fas fa-phone-alt"></i>
                 </div>
-                <p><?php echo $klantPhone ?></p>
+                <p><?php if($klantPhone!=''){ echo $klantPhone; } else { echo "---"; }  ?></p>
             </div>
             <div class="gegevensEl">
 
                 <div class="gegevensIcon">
                     <i class="fas fa-home"></i>
                 </div>
-                <p><?php echo $klantAdress ?></p>
+                <p><?php if($klantAdress!=''){ echo $klantAdress; } else { echo "---"; }  ?></p>
             </div>
         </div>
         <div id="afspraken">

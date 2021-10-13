@@ -109,10 +109,10 @@
                             <div>
                                 <p>Behandelingen:</p>
                                 <div class="priceGrid priceBehandeling">
-                                    <div class='priceBlock'><b><p>30 minuten</p></b><p>€30,00</p></div>
-                                    <div class='priceBlock'><b><p>45 minuten</p></b><p>€40,00</p></div>
-                                    <div class='priceBlock'><b><p>60 minuten</p></b><p>€50,00</p></div>
-                                    <div class='priceBlock'><b><p>90 minuten</p></b><p>€75,00</p></div>
+                                    <div class='priceBlock'><b><p>30 minuten</p></b><p>€30</p></div>
+                                    <div class='priceBlock'><b><p>45 minuten</p></b><p>€40</p></div>
+                                    <div class='priceBlock'><b><p>60 minuten</p></b><p>€50</p></div>
+                                    <div class='priceBlock'><b><p>90 minuten</p></b><p>€75</p></div>
                                 </div>
                             </div>
                             <div>
