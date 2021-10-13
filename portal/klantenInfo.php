@@ -103,6 +103,7 @@ include "include/head.php";
                     <input type="date" placeholder="Datum" name="date">
                     <input type="hidden" name="klant" value="<?php echo $klantId ?>">
                     <textarea placeholder="Tekst" name="content"></textarea>
+                    <input type="number" step="any" placeholder="Betaalde prijs" name="price">
                     <input type="submit" value="Afspraak toevoegen">
                 </form>
 
@@ -119,8 +120,23 @@ include "include/head.php";
 
                         ?>
                         <a href="afspraakInfo.php?a=<?php echo $row['id'] ?>"><div>
+                                <?php
+                                    if (isInTheFuture($row['date']) == 'false'){
+                                        ?>
+                                            <div style="background-color: orangered; padding: 7px 12px; width: fit-content; border-radius: 4px">
+                                                <p style="margin: 0px; font-size: 10px; font-weight: bold"><span style="margin-right: 5px"><i class="far fa-lightbulb"></i></span>In de toekomst</p>
+                                            </div>
+                                        <?php
+                                    } else if (isInTheFuture($row['date']) == 'today'){
+                                        ?>
+                                        <div style="background-color: mediumseagreen; padding: 7px 12px; width: fit-content; border-radius: 4px">
+                                            <p style="margin: 0px; font-size: 10px; font-weight: bold"><span style="margin-right: 5px"><i class="far fa-lightbulb"></i></span>Vandaag!</p>
+                                        </div>
+                                        <?php
+                                    }
+                                ?>
                                 <h3><?php echo $row['title']; ?></h3>
-                                <p style="color: #a5a5a5"><?php echo $row['date'] ?></p>
+                                <p style="color: #a5a5a5"><?php echo dateToString($row['date']) ?></p>
                             </div></a>
                         <?php
                     }

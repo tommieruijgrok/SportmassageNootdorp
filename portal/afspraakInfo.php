@@ -3,7 +3,6 @@ session_start();
 
 if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
 include "include/config.php";
-include "include/functions.php";
 
 if (isset($_GET['a'])){
 
@@ -15,6 +14,7 @@ if (isset($_GET['a'])){
             $afspraakTitel = $row['title'];
             $afspraakDatum = $row['date'];
             $afspraakContent = $row['content'];
+            $afspraakPrice = $row['price'];
 
             $resultA = $conn->query("SELECT * FROM klanten WHERE id ='" . $row['klant'] . "'");
             if ($resultA->num_rows > 0) {
@@ -57,6 +57,7 @@ include "include/head.php";
             <input type="text" placeholder="Titel" name="title" value="<?php echo $afspraakTitel ?>">
             <input type="date" name="date" value="<?php echo $afspraakDatum ?>">
             <textarea placeholder="Tekst" name="content"><?php echo strip_tags($afspraakContent) ?></textarea>
+            <input type="number" step="any" placeholder="Betaalde prijs" name="price" value="<?php echo floatval(str_replace(',', '.', $afspraakPrice)) ?>">
             <input type="hidden" name="id" value="<?php echo $afspraakId ?>">
             <input type="submit" value="Wijzigen" >
         </form>
@@ -69,6 +70,9 @@ include "include/head.php";
 
     <div id="main" style="position: relative">
         <h1>Afspraak van <span><a style="text-decoration: none; color: #3db2d4;" href="klantenInfo.php?k=<?php echo $klantId ?>"><?php echo $klantName ?></a></span> op <?php echo dateToString($afspraakDatum) ?></h1>
+        <div style="background-color: #222222; color: white; padding: 10px; width: fit-content; border-radius: 8px">
+            <p style="margin: 0px">€<?php if ($afspraakPrice != ''){ echo $afspraakPrice; } else { echo '-'; } ?></p>
+        </div>
         <h2><?php echo $afspraakTitel ?></h2>
         <p><?php echo $afspraakContent ?></p>
 

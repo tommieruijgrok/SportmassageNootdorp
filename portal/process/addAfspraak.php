@@ -4,8 +4,8 @@ session_start();
 if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
     include "../include/config.php";
 
-    if ((isset($_POST['title']) && isset($_POST['date']) && isset($_POST['content']) && isset($_POST['klant'])) ){
-        if ($conn->query("INSERT INTO afspraken (date, title, klant, content) VALUES ('" . $_POST['date'] . "', '" . $_POST['title'] . "', '" . $_POST['klant'] . "', '" . nl2br(htmlentities($_POST['content'], ENT_QUOTES, 'UTF-8')) . "')") === TRUE) {
+    if ((isset($_POST['title']) && isset($_POST['date']) && isset($_POST['content']) && isset($_POST['klant']) && isset($_POST['price'])) ){
+        if ($conn->query("INSERT INTO afspraken (date, title, klant, content, price) VALUES ('" . $_POST['date'] . "', '" . $_POST['title'] . "', '" . $_POST['klant'] . "', '" . nl2br(htmlentities($_POST['content'], ENT_QUOTES, 'UTF-8')) . "', '" . $_POST['price'] . "')") === TRUE) {
 
             header("location: ../afspraakInfo.php?a=" . $conn->insert_id);
         } else {
