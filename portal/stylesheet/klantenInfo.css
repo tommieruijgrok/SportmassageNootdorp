@@ -1,7 +1,7 @@
 
 #gegevensGrid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
     gap: 20px;
 }
 
@@ -25,3 +25,48 @@
 #gegevensGrid .gegevensEl p {
     text-align: center;
 }
+
+#afsprakenGrid {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(350px, 1fr) );
+    gap: 20px;
+}
+
+#afsprakenGrid div {
+    background-color: #222222;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#toevoegButton {
+    padding: 8px;
+    background-color: #3db2d4;
+    color: white;
+    width: fit-content;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+#toevoegButton p {
+    margin: 0px;
+}
+
+.inactive {
+    display: none !important;
+}
+
+#afspraakToevoegen {
+    display: block;
+}
+
+#afspraakToevoegen form {
+    width: 400px;
+}
+
+#afspraakToevoegen form input, textarea {
+    width: 100%;
+}
+
+

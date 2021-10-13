@@ -1,7 +1,8 @@
 <?php
 session_start();
-include "include/config.php";
 
+if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
+    include "include/config.php";
 if (isset($_GET['k'])){
 
     $result = $conn->query("SELECT * FROM klanten WHERE id ='" . $_GET['k'] . "'");
@@ -20,59 +21,129 @@ if (isset($_GET['k'])){
 ?>
 <html>
 
+<?php
+include "include/head.php";
+?>
+<head>
+    <link rel="stylesheet" href="stylesheet/klantenInfo.css">
+</head>
+
+<body>
+<div id="popup" class="inactive">
+    <div id="popupInner">
+        <div style="display: flex; align-items: center; justify-content: space-between">
+            <h2>Gegevens wijzigen</h2>
+            <i class="fas fa-times" style="color: orangered; cursor: pointer" id="popupClose"></i>
+        </div>
+        <form method="post" action="process/changeKlant.php">
+            <input type="text" placeholder="Naam" name="name" value="<?php echo $klantName ?>">
+            <input type="email" placeholder="Email" name="email" value="<?php echo $klantEmail ?>">
+            <input type="phone" placeholder="Phone" name="phone" value="<?php echo $klantPhone ?>">
+            <input type="adres" placeholder="Adres" name="adress" value="<?php echo $klantAdress ?>">
+            <input type="hidden" name="klant" value="<?php echo $klantId ?>">
+            <input type="submit" value="Wijzigen" >
+        </form>
+    </div>
+</div>
+<div id="container">
+
     <?php
-        include "include/head.php";
+    include "include/sidebar.php";
     ?>
-    <head>
-        <link rel="stylesheet" href="stylesheet/klantenInfo.css">
-    </head>
 
-    <body>
-        <div id="container">
+    <div id="main">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 id="title" style="cursor: pointer"><?php echo $klantName ?></h1>
+            <a href="process/deleteKlant.php?id=<?php echo $klantId ?>" style=" color: orangered; text-decoration: none">Verwijder klant</a>
+        </div>
+        <div id="gegevensGrid">
+            <div class="gegevensEl">
 
-            <?php
-            include "include/sidebar.php";
-            ?>
-
-            <div id="main">
-                <div>
-                    <h1><?php echo $klantName ?></h1>
-
+                <div class="gegevensIcon">
+                    <i class="fas fa-user"></i>
                 </div>
-                <div id="gegevensGrid">
-                    <div class="gegevensEl">
+                <p><?php echo $klantName ?></p>
+            </div>
+            <div class="gegevensEl">
 
-                        <div class="gegevensIcon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <p><?php echo $klantName ?></p>
-                    </div>
-                    <div class="gegevensEl">
-
-                        <div class="gegevensIcon">
-                            <i class="fas fa-inbox"></i>
-                        </div>
-                        <p><?php echo $klantEmail ?></p>
-                    </div>
-                    <div class="gegevensEl">
-
-                        <div class="gegevensIcon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <p><?php echo $klantPhone ?></p>
-                    </div>
-                    <div class="gegevensEl">
-
-                        <div class="gegevensIcon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <p><?php echo $klantAdress ?></p>
-                    </div>
+                <div class="gegevensIcon">
+                    <i class="fas fa-inbox"></i>
                 </div>
+                <p><?php echo $klantEmail ?></p>
+            </div>
+            <div class="gegevensEl">
+
+                <div class="gegevensIcon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <p><?php echo $klantPhone ?></p>
+            </div>
+            <div class="gegevensEl">
+
+                <div class="gegevensIcon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <p><?php echo $klantAdress ?></p>
+            </div>
+        </div>
+        <div id="afspraken">
+
+            <div style="display: flex; align-items: center; justify-content: space-between">
+                <h2>Afspraken</h2>
+                <div id="toevoegButton">
+                    <p>Afspraak toevoegen</p>
+                </div>
+
             </div>
 
+            <div id="afspraakToevoegen" class="inactive">
+                <h3>Afspraak toevoegen</h3>
+                <form action="process/addAfspraak.php" method="POST">
+                    <input type="text" placeholder="Titel" name="title">
+                    <input type="date" placeholder="Datum" name="date">
+                    <input type="hidden" name="klant" value="<?php echo $klantId ?>">
+                    <textarea placeholder="Tekst" name="content"></textarea>
+                    <input type="submit" value="Afspraak toevoegen">
+                </form>
 
+            </div>
 
+            <?php
+
+            $result = $conn->query("SELECT * FROM afspraken WHERE klant ='" . $klantId . "' ORDER BY date DESC");
+            if ($result->num_rows > 0) {
+                ?>
+                <div id="afsprakenGrid">
+                    <?php
+                    while ($row = $result->fetch_assoc()){
+
+                        ?>
+                        <a href="afspraakInfo.php?a=<?php echo $row['id'] ?>"><div>
+                                <h3><?php echo $row['title']; ?></h3>
+                                <p style="color: #a5a5a5"><?php echo $row['date'] ?></p>
+                            </div></a>
+                        <?php
+                    }
+                    ?>
+                </div>
+                <?php
+            } else {
+                ?>
+                <p style="font-style: italic">Geen afspraken gevonden</p>
+                <?php
+            }
+
+            ?>
         </div>
-    </body>
+    </div>
+
+
+
+</div>
+</body>
+<script src="script/klantenInfo.js"></script>
 </html>
+<?php
+} else {
+    header("location: login.php");
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="ssh.strato.com" id="4fd04f50-b5fa-4471-ad1d-f40b40a8ec08" port="22" nameFormat="DESCRIPTIVE" username="sportmassagenootdorp.nl" />
+    </configs>
+  </component>
+</project>

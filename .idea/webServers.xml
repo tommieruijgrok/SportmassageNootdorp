@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="af938f5a-1cc4-48f5-87f9-1d735004d7d7" name="Sportmassage Nootdorp" url="http://sportmassagenootdorp.nl">
+        <fileTransfer accessType="SFTP" host="ssh.strato.com" port="22" sshConfigId="4fd04f50-b5fa-4471-ad1d-f40b40a8ec08" sshConfig="sportmassagenootdorp.nl@ssh.strato.com:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

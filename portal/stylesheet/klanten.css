@@ -12,6 +12,16 @@
     margin: 0px;
 }
 
+.inactive {
+    display: none !important;
+}
+
+#addKlanten {
+
+    display: block;
+
+}
+
 #klantenGrid {
     margin-top: 5px;
     background-color: #3db2d4;
@@ -23,9 +33,15 @@
     padding: 10px 15px;
     display: flex;
     justify-content: space-between;
+    transition: 0.1s background-color;
+}
+
+.klantenInfo:hover {
+    background-color: #36a3c1;
 }
 
 .klantenInfo p {
     margin: 0px;
 }
+
 
