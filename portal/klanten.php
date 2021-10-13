@@ -53,11 +53,6 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                                         echo $row['naam'];
                                         ?>
                                     </p>
-                                    <p>
-                                        <?php
-                                        echo $row['timestamp'];
-                                        ?>
-                                    </p>
                                 </div>
                             </a>
                             <?php

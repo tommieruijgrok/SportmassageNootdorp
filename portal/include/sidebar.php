@@ -8,9 +8,6 @@
         <a href="klanten.php"><div>
             <p>Klanten</p>
         </div></a>
-        <a><div>
-            <p>Afspraken</p>
-        </div></a>
         <a href="process/logout.php"><div>
                 <p><span style="margin-right: 5px"><i class="fas fa-sign-out-alt"></i></span>Uitloggen</p>
             </div></a>

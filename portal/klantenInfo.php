@@ -52,7 +52,7 @@ include "include/head.php";
     ?>
 
     <div id="main">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div id="titleHead">
             <h1 id="title" style="cursor: pointer"><?php echo $klantName ?></h1>
             <a href="process/deleteKlant.php?id=<?php echo $klantId ?>" style=" color: orangered; text-decoration: none">Verwijder klant</a>
         </div>

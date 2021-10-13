@@ -58,3 +58,15 @@ body {
 #popupInner input {
     width: 100%;
 }
+
+@media only screen and (max-width: 800px) {
+    #container {
+        display: block;
+    }
+
+    #sidebar {
+        min-height: unset;
+    }
+
+
+}

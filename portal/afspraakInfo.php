@@ -43,6 +43,7 @@ include "include/head.php";
 
 <head>
     <link rel="stylesheet" href="stylesheet/klantenInfo.css">
+    <link rel="stylesheet" href="stylesheet/afspraakInfo.css">
 </head>
 
 <body>
@@ -55,7 +56,7 @@ include "include/head.php";
         <form method="post" action="process/changeAfspraak.php">
             <input type="text" placeholder="Titel" name="title" value="<?php echo $afspraakTitel ?>">
             <input type="date" name="date" value="<?php echo $afspraakDatum ?>">
-            <textarea placeholder="Tekst" name="content"><?php echo $afspraakContent ?></textarea>
+            <textarea placeholder="Tekst" name="content"><?php echo strip_tags($afspraakContent) ?></textarea>
             <input type="hidden" name="id" value="<?php echo $afspraakId ?>">
             <input type="submit" value="Wijzigen" >
         </form>
@@ -71,7 +72,7 @@ include "include/head.php";
         <h2><?php echo $afspraakTitel ?></h2>
         <p><?php echo $afspraakContent ?></p>
 
-        <div style="position: absolute; bottom: 20px; right: 20px;">
+        <div style="" id="changeButtons">
             <a style="color: orangered" href="process/deleteAfspraak.php?a=<?php echo $afspraakId ?>&k=<?php echo $klantId ?>">Verwijder afspraak</a>
             <a id="wijzig">Wijzig afspraak</a>
         </div>
