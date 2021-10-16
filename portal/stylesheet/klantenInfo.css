@@ -76,6 +76,41 @@
     justify-content: space-between;
 }
 
+#groupGrid {
+    gap: 10px;
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    padding: 0px 0px 10px 0px;
+}
+
+.groupTag {
+    background-color: orangered;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.groupTag a p{
+    margin: 0px;
+
+}
+
+.groupTagLink {
+    color: unset;
+    text-decoration: none;
+}
+
+.groupTagLink:hover {
+    text-decoration: line-through;
+
+}
+
+.groupTag:hover {
+    background-color: #d03b03;
+}
+
 @media only screen and (max-width: 800px) {
     #titleHead {
         display: block;

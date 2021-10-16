@@ -12,6 +12,9 @@
         <a href="finance.php"><div>
                 <p>Financiën</p>
             </div></a>
+        <a href="groups.php"><div>
+                <p>Groepen</p>
+            </div></a>
         <a href="process/logout.php"><div>
                 <p><span style="margin-right: 5px"><i class="fas fa-sign-out-alt"></i></span>Uitloggen</p>
             </div></a>

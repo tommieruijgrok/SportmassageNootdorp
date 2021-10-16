@@ -43,6 +43,32 @@ include "include/head.php";
             <input type="hidden" name="klant" value="<?php echo $klantId ?>">
             <input type="submit" value="Wijzigen" >
         </form>
+
+                <?php
+                    $result = $conn->query("SELECT * FROM groepen");
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            ?>
+                            <form method="post" action="process/addGroupToKlant.php">
+                                <input type="hidden" name="klant" value="<?php echo $klantId ?>">
+                                <select name="groupId">
+                                    <?php
+                                    $resultA = $conn->query("SELECT * FROM groepen");
+                                    if ($resultA->num_rows > 0) {
+                                        while ($rowA = $resultA->fetch_assoc()) {
+                                            ?>
+                                            <option value="<?php echo $row['id'] ?>"><?php echo $row['naam'] ?></option>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                                <input type="submit" value="Toevoegen aan de groep">
+                            </form>
+                                <?php
+                        }
+                    }
+                ?>
     </div>
 </div>
 <div id="container">
@@ -55,6 +81,27 @@ include "include/head.php";
         <div id="titleHead">
             <h1 id="title" style="cursor: pointer"><?php echo $klantName ?></h1>
             <a href="process/deleteKlant.php?id=<?php echo $klantId ?>" style=" color: orangered; text-decoration: none">Verwijder klant</a>
+        </div>
+        <div id="groupGrid">
+            <?php
+                $result = $conn->query("SELECT * FROM klantenByGroep WHERE klantId ='" . $klantId . "'");
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+
+                        $resultA = $conn->query("SELECT * FROM groepen WHERE id ='" . $row['groupId'] . "'");
+                        if ($resultA->num_rows > 0) {
+                            while ($rowA = $resultA->fetch_assoc()) {
+                                ?>
+                                <div class="groupTag">
+                                    <a class="groupTagLink" href="process/removeGroupFromKlant.php?klant=<?php echo $klantId ?>&groep=<?php echo $rowA['id'] ?>"><p><?php echo $rowA['naam']; ?></p></a>
+                                </div>
+                                    <?php
+                            }
+                        }
+
+                    }
+                }
+            ?>
         </div>
         <div id="gegevensGrid">
             <div class="gegevensEl">

@@ -56,10 +56,3 @@
     margin: 0px;
 }
 
-.fa-chevron-up {
-    transition: transform 0.3s;
-}
-
-.arrowActive {
-    transform: rotate(180deg);
-}

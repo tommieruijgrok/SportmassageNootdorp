@@ -63,6 +63,27 @@ body {
     display: none !important;
 }
 
+#toevoegButton {
+    padding: 8px;
+    background-color: #3db2d4;
+    color: white;
+    width: fit-content;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+#toevoegButton p {
+    margin: 0px;
+}
+
+.fa-chevron-up {
+    transition: transform 0.3s;
+}
+
+.arrowActive {
+    transform: rotate(180deg);
+}
 
 @media only screen and (max-width: 800px) {
     #container {
