@@ -8,7 +8,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
     include "include/head.php";
     ?>
     <head>
-        <link rel="stylesheet" href="stylesheet/index.css">
+        <link rel="stylesheet" href="stylesheet/finance.css">
     </head>
     <body>
 

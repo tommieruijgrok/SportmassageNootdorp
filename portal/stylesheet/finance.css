@@ -1,0 +1,65 @@
+#financeGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.month {
+    background-color: #222222;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+}
+
+.monthRecords {
+    display: flex;
+    justify-content: space-between;
+    color: #c6c6c6;
+    padding: 8px 0px;
+    font-size: 12px;
+
+}
+
+.monthRecords p, .monthRecords a{
+    margin: 0px;
+}
+
+.monthRecords a{
+    text-decoration: none;
+    color: unset;
+}
+
+.monthDetails {
+    transition: max-height 0.5s;
+    overflow: hidden;
+}
+
+.monthDetailsActive {
+
+    max-height: 600px;
+}
+
+.monthDetailsInactive {
+    max-height: 0px;
+}
+
+.currentMonth {
+    font-size: 12px;
+    background-color: orangered;
+    width: fit-content;
+    padding: 5px 5px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.currentMonth p {
+    margin: 0px;
+}
+
+.fa-chevron-up {
+    transition: transform 0.3s;
+}
+
+.arrowActive {
+    transform: rotate(180deg);
+}

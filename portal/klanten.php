@@ -1,7 +1,8 @@
 <?php
 session_start();
+include "include/config.php";
 if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
-    include "include/config.php";
+
 
     ?>
     <html>
