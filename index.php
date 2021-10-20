@@ -50,6 +50,11 @@
                             <img src="img/arrow.png">
                         </div>
                         <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+                        <a href="voorwaarden.php" style="text-decoration: none; color: unset"><div>
+                            <p>Voorwaarden</p>
+                            <img src="img/arrow.png">
+                        </div></a>
+                        <hr style="height:1px;border-width:0;color:gray;background-color:gray">
 
                     </div>
                     <p style="padding: 15px 10px 0px 10px; margin: 0px; color: grey"><span style="font-weight: bold; ">Massage op elke locatie!</span><br>Wil je een massage, maar kun of wil je de deur niet uit? Geen probleem. Ik masseer aan huis, op het werk, bij events of op een andere geschikte locatie.</p>
