@@ -47,26 +47,23 @@ include "include/head.php";
                 <?php
                     $result = $conn->query("SELECT * FROM groepen");
                     if ($result->num_rows > 0) {
+                        ?>
+                        <form method="post" action="process/addGroupToKlant.php">
+                        <input type="hidden" name="klant" value="<?php echo $klantId ?>">
+                        <select name="groupId">
+                        <?php
                         while ($row = $result->fetch_assoc()) {
+
                             ?>
-                            <form method="post" action="process/addGroupToKlant.php">
-                                <input type="hidden" name="klant" value="<?php echo $klantId ?>">
-                                <select name="groupId">
-                                    <?php
-                                    $resultA = $conn->query("SELECT * FROM groepen");
-                                    if ($resultA->num_rows > 0) {
-                                        while ($rowA = $resultA->fetch_assoc()) {
-                                            ?>
-                                            <option value="<?php echo $row['id'] ?>"><?php echo $row['naam'] ?></option>
-                                            <?php
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                                <input type="submit" value="Toevoegen aan de groep">
-                            </form>
-                                <?php
+                            <option value="<?php echo $row['id'] ?>"><?php echo $row['naam'] ?></option>
+                            <?php
+
                         }
+                        ?>
+                        </select>
+                            <input type="submit" value="Toevoegen aan de groep">
+                        </form>
+                        <?php
                     }
                 ?>
     </div>
