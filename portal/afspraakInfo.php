@@ -69,7 +69,7 @@ include "include/head.php";
     ?>
 
     <div id="main" style="position: relative">
-        <h1>Afspraak van <span><a style="text-decoration: none; color: #3db2d4;" href="klantenInfo.php?k=<?php echo $klantId ?>"><?php echo $klantName ?></a></span> op <?php echo dateToString($afspraakDatum) ?></h1>
+        <h1 class="animate__animated animate__jackInTheBox pageTitle">Afspraak van <span><a style="text-decoration: none; color: #3db2d4;" href="klantenInfo.php?k=<?php echo $klantId ?>"><?php echo $klantName ?></a></span> op <?php echo dateToString($afspraakDatum) ?></h1>
         <div style="background-color: #222222; color: white; padding: 10px; width: fit-content; border-radius: 8px">
             <p style="margin: 0px">€<?php if ($afspraakPrice != ''){ echo $afspraakPrice; } else { echo '-'; } ?></p>
         </div>

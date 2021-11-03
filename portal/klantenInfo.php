@@ -76,7 +76,7 @@ include "include/head.php";
 
     <div id="main">
         <div id="titleHead">
-            <h1 id="title" style="cursor: pointer"><?php echo $klantName ?></h1>
+            <h1 id="title" class="animate__animated animate__jackInTheBox pageTitle" style="cursor: pointer"><?php echo $klantName ?></h1>
             <a href="process/deleteKlant.php?id=<?php echo $klantId ?>" style=" color: orangered; text-decoration: none">Verwijder klant</a>
         </div>
         <div id="groupGrid">

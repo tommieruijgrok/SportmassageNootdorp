@@ -39,7 +39,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
 
         <div id="main" style="position: relative">
             <div style="display: flex; align-items: center; justify-content: space-between">
-                <h1>Groepen</h1>
+                <h1 class="animate__animated animate__jackInTheBox pageTitle">Groepen</h1>
                 <div id="toevoegButton">
                     <p>Groepen toevoegen</p>
                 </div>

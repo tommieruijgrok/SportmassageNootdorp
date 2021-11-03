@@ -19,7 +19,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
         ?>
 
         <div id="main">
-            <h1>Sportmassage Nootdorp</h1>
+            <h1 class="animate__animated animate__jackInTheBox pageTitle">Sportmassage Nootdorp</h1>
         </div>
 
     </div>

@@ -37,7 +37,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
         ?>
 
         <div id="main" style="position: relative">
-            <h1>Overzicht financiën</h1>
+            <h1 class="animate__animated animate__jackInTheBox pageTitle">Overzicht financiën</h1>
 
                 <div id="financeGrid">
                     <?php

@@ -1,7 +1,7 @@
 
 <link rel="stylesheet" href="../stylesheet/general.css">
 <div id="sidebar">
-    <h2>Portal</h2>
+    <h2 class="animate__animated animate__fadeInLeft">Portal</h2>
     <div>
         <a href="index.php"><div>
             <p>Home</p>

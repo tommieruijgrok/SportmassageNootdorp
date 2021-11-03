@@ -22,7 +22,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
 
             <div id="main">
                 <div style="display: flex; align-items: center; justify-content: space-between">
-                    <h1>Klanten</h1>
+                    <h1 class="animate__animated animate__jackInTheBox pageTitle">Klanten</h1>
                     <div id="toevoegButton">
                         <p>Klanten toevoegen</p>
                     </div>
