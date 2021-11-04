@@ -51,7 +51,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                     <input type="submit" value="toevoegen">
                 </form>
             </div>
-            <div id="groepenGrid">
+            <div id="groepenGrid" class="animate__animated animate__fadeInUp">
                 <?php
                 $sql = "SELECT * FROM groepen ORDER BY naam";
                 $result = $conn->query($sql);

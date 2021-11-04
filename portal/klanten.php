@@ -38,7 +38,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                     </form>
                 </div>
 
-                <div id="klantenGrid">
+                <div id="klantenGrid"  class="animate__animated animate__fadeInUp">
                     <?php
                     $sql = "SELECT * FROM klanten ORDER BY naam";
                     $result = $conn->query($sql);

@@ -1,0 +1,22 @@
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#loginContainer {
+    width: 500px;
+    background-color: #3db2d4;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#loginContainer h2 {
+    color: white;
+}
+
+#loginContainer input {
+    width: 100%;
+}
