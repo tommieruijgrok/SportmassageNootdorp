@@ -1,0 +1,86 @@
+#addNews {
+    width: 500px;
+}
+
+#addNews textarea, input {
+    width: 100%;
+}
+
+#newsGrid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat( auto-fill, minmax(300px, 1fr) );
+
+}
+
+.newsArticle {
+    position: relative;
+    background-color: #222222;
+    color: white;
+    border-radius: 8px;
+    min-height: 130px;
+    width: 100%;
+    box-sizing: border-box;
+
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.cornerButtons {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.cornerButtons i {
+    font-size: 20px;
+}
+
+.newsArticle a {
+    text-decoration: none;
+    color: unset;
+}
+
+.articleAbsoluteContainer {
+    position: absolute;
+    bottom: 0px;
+    width: available;
+    padding: 20px 20px;
+    text-shadow: 1px -1px 8px rgba(0,0,0,0.36);
+}
+
+.articleAbsoluteContainer p {
+    width: 100%;
+    margin: 0px;
+    word-break: break-all;
+}
+
+.article_title {
+    font-size: 20px;
+}
+
+.article_date {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+input[type="file"] {
+    display: none;
+}
+.file_upload_button {
+    border: 0px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #222222;
+    color: white;
+}
+
+.file_upload_button p {
+    margin: 0px;
+}

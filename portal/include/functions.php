@@ -26,3 +26,28 @@ function isInTheFuture($dateInQuestion){
         //echo "NO";
     }
 }
+
+function generateImageKeyNews(){
+    include "../include/config.php";
+
+    $randomCode = generateRandomString();
+    $result = $conn->query("SELECT * FROM nieuws WHERE image_id = '" . $randomCode . "'");
+    if ($result->num_rows > 0) {
+        return generateImageKeyNews();
+    } else {
+        return $randomCode;
+    }
+}
+
+$test = "test good";
+
+function generateRandomString() {
+    $length = 11;
+    $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
