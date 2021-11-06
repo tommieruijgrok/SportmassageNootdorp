@@ -27,7 +27,7 @@
     <main>
         <div id="imageBanner">
             <img
-                src="https://www.bewegingscentrum-reset.nl/wp-content/uploads/2020/04/sportmassage-tiel.jpg">
+                src="banner.jpeg">
         </div>
         <div id="sectionContent">
 
