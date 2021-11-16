@@ -17,10 +17,10 @@
 
 <header id="header">
 
-    <div>
-        <img src="img/logo.png">
-        <p id="headerTitle">Sportmassage Nootdorp</p>
-    </div>
+    <a href="index.php" style="color: unset; text-decoration: none"><div>
+            <img src="img/logo.png">
+            <p id="headerTitle">Sportmassage Nootdorp</p>
+        </div></a>
 
 </header>
 
@@ -39,6 +39,11 @@
                         <p>Home</p>
                         <img src="img/arrow.png">
                     </div></a>
+                    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+                    <a href="nieuws.php" style="text-decoration: none; color: unset"><div>
+                            <p>Nieuws</p>
+                            <img src="img/arrow.png">
+                        </div></a>
 
                     <hr style="height:1px;border-width:0;color:gray;background-color:gray">
 

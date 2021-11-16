@@ -17,10 +17,10 @@
 
     <header id="header">
 
-        <div>
-            <img src="img/logo.png">
-            <p id="headerTitle">Sportmassage Nootdorp</p>
-        </div>
+        <a href="index.php" style="color: unset; text-decoration: none"><div>
+                <img src="img/logo.png">
+                <p id="headerTitle">Sportmassage Nootdorp</p>
+            </div></a>
 
     </header>
 

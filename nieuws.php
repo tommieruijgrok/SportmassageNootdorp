@@ -22,10 +22,10 @@
 
 <header id="header">
 
-    <div>
-        <img src="img/logo.png">
-        <p id="headerTitle">Sportmassage Nootdorp</p>
-    </div>
+    <a href="index.php" style="color: unset; text-decoration: none"><div>
+            <img src="img/logo.png">
+            <p id="headerTitle">Sportmassage Nootdorp</p>
+        </div></a>
 
 </header>
 
@@ -41,6 +41,11 @@
                     <hr style="height:1px;border-width:0;color:gray;background-color:gray">
                     <a href="index.php" style="text-decoration: none; color: unset"><div>
                             <p>Home</p>
+                            <img src="img/arrow.png">
+                        </div></a>
+                    <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+                    <a href="voorwaarden.php" style="text-decoration: none; color: unset"><div>
+                            <p>Voorwaarden</p>
                             <img src="img/arrow.png">
                         </div></a>
 
@@ -68,15 +73,15 @@
                     <h2>Recent nieuws</h2>
                     <div id="newsGrid">
                         <?php
-                        $result = $conn->query("SELECT * FROM nieuws ORDER BY DATE DESC");
+                        $result = $conn->query("SELECT * FROM nieuws WHERE visibility = 'active' ORDER BY DATE DESC");
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 ?>
                                 <a href="artikel.php?a=<?php echo $row['id'] ?>">
-                                <div class="newsArticle">
-                                    <div class="articleAbsoluteContainer">
+                                <div class="newsArticle" <?php if($row['image_name'] != ''){ ?>style="background-image: url('portal/process/newsImages/<?php echo $row['image_name']; ?>')"<?php } ?>>
+                                    <div class="articleAbsoluteContainer" <?php if($row['image_name'] == ''){ ?>style="text-shadow: unset"<?php } ?>>
                                         <p class="article_title"><?php echo $row['article_title'] ?></p>
-                                        <p class="article_date"><?php echo dateToString($row['date']) ?></p>
+                                        <p class="article_date" <?php if($row['image_name'] != ''){ ?>style="color: #a5a5a5"<?php } ?>><?php echo dateToString($row['date']) ?></p>
                                     </div>
                                 </div>
                                 </a>
