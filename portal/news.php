@@ -56,7 +56,18 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                                     }
                                 ?>>
                                     <div class="cornerButtons">
-                                        <a href="../artikel.php?a=<?php echo $row['id'] ?>" target="_blank"><i class="fas fa-globe"></i></a>
+                                        <?php
+                                            if ($row['visibility'] == 'active'){
+                                                ?>
+                                                <a href="../artikel.php?a=<?php echo $row['id'] ?>" target="_blank"><i class="fas fa-globe"></i></a>
+                                                <?php
+                                            } else if ($row['visibility'] == 'inactive'){
+                                                ?>
+                                                <i class="fas fa-eye-slash"></i>
+                                                <?php
+                                            }
+                                        ?>
+
                                     </div>
                                     <div class="articleAbsoluteContainer">
                                         <a href="article.php?a=<?php echo $row['id'] ?>"><p class="article_title"><?php echo $row['article_title'] ?></p></a>

@@ -29,6 +29,8 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                         header("location: ../news.php");
                     }
                 }
+            } else {
+                echo "Verkeerd type bestand!";
             }
         } else {
             if ($conn->query("INSERT INTO nieuws (article_title, content, date) VALUES ('" . $_POST['article_title'] . "', '" . nl2br(htmlentities($_POST['article_content'], ENT_QUOTES, 'UTF-8')) . "', '" . $_POST['article_date'] . "')") === TRUE) {

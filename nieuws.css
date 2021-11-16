@@ -8,11 +8,15 @@
 .newsArticle {
     position: relative;
     background-color: #c6c6c6;
-    color: black;
+    color: white;
     border-radius: 8px;
     min-height: 130px;
     width: 100%;
     box-sizing: border-box;
+
+    background-position: center;
+    background-size: cover;
+
 
 }
 
@@ -21,6 +25,7 @@
     bottom: 0px;
     width: available;
     padding: 20px 20px;
+    text-shadow: 1px -1px 8px rgb(0 0 0 / 36%);
 }
 
 .articleAbsoluteContainer p {

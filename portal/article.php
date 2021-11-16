@@ -71,12 +71,24 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                             <p style="margin-top: 0px; color: #8c8c8c"><?php echo dateToString($row['date']) ?></p>
 
                             <?php
+
+                        if ($row['visibility'] == 'active'){
+                            ?>
+                            <p id="visibilityToggle"><i style="margin-left: 5px" class="fas fa-eye"></i></p>
+                            <?php
+                        } else {
+                            ?>
+                            <p id="visibilityToggle"><i style="margin-left: 5px" class="fas fa-eye-slash"></i></p>
+                            <?php
+                        }
+
                                 if (!empty($row['image_name'])){
                                     ?>
                                         <img style="height: 200px; max-width: 100%; overflow: hidden; border-radius: 8px" src="process/newsImages/<?php echo $row['image_name'] ?>">
                                     <?php
                                 }
                             ?>
+
 
                             <p><?php echo $row['content'] ?></p>
 

@@ -5,7 +5,7 @@ include 'portal/include/functions.php';
 if (isset($_GET['a']) == false){
     header("location: nieuws.php");
 } else {
-    $result = $conn->query("SELECT * FROM nieuws WHERE id = " . $_GET['a']);
+    $result = $conn->query("SELECT * FROM nieuws WHERE visibility = 'active' AND id = " . $_GET['a']);
     if ($result->num_rows == 0) {
         header("location: nieuws.php");
     }
@@ -82,6 +82,14 @@ if (isset($_GET['a']) == false){
                             ?>
                             <h2 id="article_title"><?php echo $row['article_title'] ?></h2>
                             <p id="article_date"><?php echo dateToString($row['date']) ?></p>
+                            <?php
+                                if (!empty($row['image_name'])){
+                                    ?>
+                                    <img id="article_image" src="portal/process/newsImages/<?php echo $row['image_name'] ?>">
+                                        <?php
+                                }
+                            ?>
+
                             <p><?php echo $row['content'] ?></p>
                             <?php
                         }
