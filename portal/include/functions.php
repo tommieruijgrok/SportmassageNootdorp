@@ -39,8 +39,6 @@ function generateImageKeyNews(){
     }
 }
 
-$test = "test good";
-
 function generateRandomString() {
     $length = 11;
     $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -50,4 +48,14 @@ function generateRandomString() {
         $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
     return $randomString;
+}
+
+function isEndTimeGreaterThatBeginTime($beginTime,$endTime){
+    $start = strtotime($beginTime);
+    $end = strtotime($endTime);
+    if ($start-$end > 0)
+        return 0;
+    else {
+        return 1;
+    }
 }

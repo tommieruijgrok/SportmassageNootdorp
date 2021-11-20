@@ -144,10 +144,23 @@ include "include/head.php";
                 <h3>Afspraak toevoegen</h3>
                 <form action="process/addAfspraak.php" method="POST">
                     <input type="text" placeholder="Titel" name="title">
-                    <input type="date" placeholder="Datum" name="date">
+                    <div id="datetimeContainer">
+                        <input type="date" placeholder="Datum" name="date">
+                        <div id="timeContainer">
+                            <div>
+                                <label>Begintijd</label>
+                                <input type="time" name="beginTime">
+                            </div>
+                            <div>
+                                <label>Eindtijd</label>
+                                <input type="time" name="endTime">
+                            </div>
+                        </div>
+                    </div>
                     <input type="hidden" name="klant" value="<?php echo $klantId ?>">
                     <textarea placeholder="Tekst" name="content"></textarea>
                     <input type="number" step="any" placeholder="Betaalde prijs" name="price">
+
                     <input type="submit" value="Afspraak toevoegen">
                 </form>
 

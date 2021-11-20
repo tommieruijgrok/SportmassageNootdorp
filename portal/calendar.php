@@ -20,13 +20,20 @@ X-MS-OLK-FORCEINSPECTOROPEN:TRUE";
 
 
         while ($row = $result->fetch_assoc()) {
+            $beginTime = null;
+            $endTime = null;
+            if ($row['beginTime'] != null){
+                $beginTime = "T" . date('His', strtotime($row['beginTime'])) . "";
+            }
+            if ($row['endTime'] != null){
+                $endTime = "T" . date('His', strtotime($row['endTime'])) . "";
+            }
             $resultA = $conn->query("SELECT * FROM klanten WHERE id = " . $row['klant']);
             if ($resultA->num_rows > 0) {
                 while ($rowA = $resultA->fetch_assoc()) {
                    $klantNaam = $rowA['naam'];
                 }
             }
-
 
             echo "
 BEGIN:VEVENT
@@ -35,9 +42,8 @@ UID:SPORTMASSAGENOOTDORP" . $row['id'] . "
 CREATED:20211020T63750Z
 DESCRIPTION:" . strip_tags($row['content']) . "
 URL:https://sportmassagenootdorp.nl/portal/afspraakInfo.php?a=" . $row['id'] ."
-DTSTART;VALUE=DATE:" . date('Ymd', strtotime($row['date'])) ."
-DTEND;VALUE=DATE:" . date('Ymd', strtotime($row['date'], ' +1 day')) ."
-
+DTSTART;VALUE=DATE:" . date('Ymd', strtotime($row['date'])) . $beginTime . "
+DTEND;VALUE=DATE:" . date('Ymd', strtotime($row['date']))  . $endTime . "
 PRIORITY:5
 SEQUENCE:1
 SUMMARY;LANGUAGE=NL:Afspraak van " . $klantNaam . " (" . $row['title'] .")

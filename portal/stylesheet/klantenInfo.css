@@ -70,6 +70,16 @@
     width: 100%;
 }
 
+#timeContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+#timeContainer label {
+    font-size: 12px;
+}
+
 #titleHead {
     display: flex;
     align-items: center;
