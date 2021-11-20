@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    include "portal/include/config.php";
+    $_SESSION['type'] = 'customer';
+    $conn->query("INSERT INTO sessions (session_id) VALUES ('" . session_id() . "')");
+?>
 <html lang="en">
 
 <head>
@@ -63,7 +69,7 @@
 
 
                     </div>
-                    <p style="padding: 15px 10px 0px 10px; margin: 0px; color: grey"><span style="font-weight: bold; ">Massage op elke locatie!</span><br>Wil je een massage, maar kun of wil je de deur niet uit? Geen probleem. Ik masseer aan huis, op het werk, bij events of op een andere geschikte locatie.</p>
+                    <p style="padding: 15px 10px 0px 10px; margin: 0px; color: black"><span style="font-weight: bold; ">Massage op elke locatie!</span><br>Wil je een massage, maar kun of wil je de deur niet uit? Geen probleem. Ik masseer aan huis, op het werk, bij events of op een andere geschikte locatie.</p>
                     <div id="contact">
                         <h2>Contact</h2>
                         <p>Voor vragen of voor het maken van een afspraak, neem dan contact met mij op.</p>
@@ -85,7 +91,6 @@
                     </section>
 
                     <section id="massage">
-
                         <h2>Massage</h2>
                         <p>De sportmassage is een krachtige massage die is bedoeld om het lichaam weer in balans te krijgen. Er is bij deze massage extra aandacht voor de spieren waarbij er gebruik wordt gemaakt van diepe en langzame massagetechnieken. Deze speciale bewegingen zorgen voor reacties in het lichaam die het spierherstel moeten bevorderen. Het verbetert de bloedcirculatie waardoor afvalstoffen, pijn en vocht sneller kunnen worden afgevoerd. Zo kunnen blessures worden hersteld én voorkomen.</p>
                         <h3>Voor wie is een sportmassage?</h3>
