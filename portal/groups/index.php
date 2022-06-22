@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "include/config.php";
+include "../include/config.php";
 if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
 
     ?>
@@ -8,12 +8,12 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
     <html>
 
     <?php
-    include "include/head.php";
+    include "../include/head.php";
     ?>
 
     <head>
-        <link rel="stylesheet" href="stylesheet/general.css">
-        <link rel="stylesheet" href="stylesheet/groups.css">
+        <link rel="stylesheet" href="../stylesheet/general.css">
+        <link rel="stylesheet" href="../stylesheet/groups.css">
     </head>
 
     <body>
@@ -23,7 +23,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                 <h2>Gegevens wijzigen</h2>
                 <i class="fas fa-times" style="color: orangered; cursor: pointer" id="popupClose"></i>
             </div>
-            <form method="post" action="process/changeGroup.php" id="">
+            <form method="post" action="../process/changeGroup.php" id="">
                 <div id="changeGroupFormOutput">
 
                 </div>
@@ -34,7 +34,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
     </div>
     <div id="container">
         <?php
-        include "include/sidebar.php";
+        include "../include/sidebar.php";
         ?>
 
         <div id="main" style="position: relative">
@@ -46,7 +46,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
             </div>
             <div id="addGroepen" class="inactive">
                 <h3>Voeg groepen toe</h3>
-                <form method="post" action="process/addGroepen.php">
+                <form method="post" action="../process/addGroepen.php">
                     <input type="text" name="name" placeholder="Naam">
                     <input type="submit" value="toevoegen">
                 </form>
@@ -88,7 +88,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                                             }
                                         }
                                         ?>
-                                        <a href="process/deleteGroup.php?id=<?php echo $row['id'] ?>"><i style="color: orangered; margin-right: 10px" class="fas fa-trash"></i></a>
+                                        <a href="../process/deleteGroup.php?id=<?php echo $row['id'] ?>"><i style="color: orangered; margin-right: 10px" class="fas fa-trash"></i></a>
                                         <i class="fas fa-edit" style="margin-right: 10px" onclick="editGroup(this)"></i>
                                         <i class="fas fa-chevron-up"></i>
                                     </div>
@@ -107,14 +107,11 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                                                 while ($rowB = $resultB->fetch_assoc()) {
                                                     ?>
                                                         <div>
-                                                            <a style="text-decoration: none; color: unset" href="klantenInfo.php?k=<?php echo $rowB['id'] ?>"><p><?php echo $rowB['naam']; ?></p></a>
+                                                            <a style="text-decoration: none; color: unset" href="../klantenInfo/index.php?k=<?php echo $rowB['id'] ?>"><p><?php echo $rowB['naam']; ?></p></a>
                                                         </div>
                                                     <?php
                                                 }
                                             }
-
-
-
                                         }
                                     } else {
                                         ?>
@@ -139,11 +136,11 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
         </div>
     </div>
     </body>
-    <script src="script/groups.js"></script>
+    <script src="../script/groups.js"></script>
     </html>
 
     <?php
 
 }  else {
-    header("location: login.php");
+    header("location: ../login");
 }

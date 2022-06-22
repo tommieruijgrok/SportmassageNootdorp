@@ -5,10 +5,10 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
     if (isset($_GET['a'])){
 
         $conn->query("DELETE FROM afspraken WHERE id = " . $_GET['a']);
-        header("location: ../klantenInfo.php?k=" . $_GET['k']);
+        header("location: ../index.php?k=" . $_GET['k']);
 
     }
 } else {
-    header("location: ../login.php");
+    header("location: ../index.php");
 }
 

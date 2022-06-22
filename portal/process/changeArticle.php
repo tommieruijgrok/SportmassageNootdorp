@@ -6,13 +6,10 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
 
     if ((isset($_POST['title']) && isset($_POST['date']) && isset($_POST['content']) && isset($_POST['id'])) ){
         if ($conn->query("UPDATE nieuws SET article_title = '" . $_POST['title'] . "', date = '" . $_POST['date'] . "', content = '" . nl2br(htmlentities($_POST['content'], ENT_QUOTES, 'UTF-8')) . "' WHERE id = " . $_POST['id']) === TRUE) {
-
             echo "AANPASSING GELUKT!";
-
         } else {
-            header("location: ../article.php?a=" . $_POST['id']);
+            header("location: ../index.php?a=" . $_POST['id']);
         }
-
         if(!empty($_FILES["file"]["name"])){
             $dir = "newsImages/";
             $image_id = generateImageKeyNews();
@@ -20,14 +17,13 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
             $image_type = pathinfo($dir . $image_file, PATHINFO_EXTENSION);
             $fileName = $image_id . '.' . $image_type;
             $targetFilePath = $dir . $fileName;
-
             $allowTypes = array('jpg', 'jpeg', 'png', 'gif');
             if (in_array($image_type, $allowTypes)){
                 if (move_uploaded_file($_FILES['file']['tmp_name'], $targetFilePath)){
                     if ($conn->query("UPDATE nieuws SET image_name = '" . $fileName . "', image_id = '" . $image_id . "'  WHERE id = " . $_POST['id']) === TRUE) {
-                        header("location: ../article.php?a=" . $_POST['id']);
+                        header("location: ../index.php?a=" . $_POST['id']);
                     } else {
-                        header("location: ../article.php?a=" . $_POST['id']);
+                        header("location: ../index.php?a=" . $_POST['id']);
                     }
                 }
             } else {
@@ -38,8 +34,8 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
         }
 
     } else {
-        header("location: ../article.php?a=" . $_POST['id']);
+        header("location: ../index.php?a=" . $_POST['id']);
     }
 } else {
-    header("location: ../login.php");
+    header("location: ../index.php");
 }

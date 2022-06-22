@@ -1,54 +1,23 @@
 <?php
 session_start();
-
 if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
-include "include/config.php";
-include "classes/Afspraak.php";
-include "classes/Klant.php";
+include "../include/config.php";
+include "../classes/Afspraak.php";
+include "../classes/Klant.php";
 
     if (isset($_GET['a'])){
 
-        $result = $conn->query("SELECT * FROM afspraken WHERE id ='" . $_GET['a'] . "'");
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-
-                $resultA = $conn->query("SELECT * FROM klanten WHERE id ='" . $row['klant'] . "'");
-                if ($resultA->num_rows > 0) {
-                    while ($rowA = $resultA->fetch_assoc()) {
-                        $klant = new Klant($rowA['id'], $rowA['naam']);
-                        if (isset($rowA['telefoonnummer'])){
-                            $klant->setPhone($rowA['telefoonnummer']);
-                        }
-                        if (isset($rowA['email'])){
-                            $klant->setEmail($rowA['email']);
-                        }
-                        if (isset($rowA['adres'])){
-                            $klant->setAdress($rowA['adres']);
-                        }
-                    }
-                }
-
-                $afspraak = new Afspraak($row['id'], $row['title'], $row['date'], $row['content']);
-                if (isset($row['beginTime'])){
-                    $afspraak->setBeginTime($row['beginTime']);
-                }
-                if (isset($row['endTime'])){
-                    $afspraak->setEndTime($row['endTime']);
-                }
-                if (isset($row['price'])){
-                    $afspraak->setPrice($row['price']);
-                }
-            }
-        }
+        $afspraak = new Afspraak($_GET['a']);
+        $klant = new Klant($afspraak->klant);
     }
     ?>
 <?php
-include "include/head.php";
+include "../include/head.php";
 ?>
 
 <head>
-    <link rel="stylesheet" href="stylesheet/klantenInfo.css">
-    <link rel="stylesheet" href="stylesheet/afspraakInfo.css">
+    <link rel="stylesheet" href="../stylesheet/klantenInfo.css">
+    <link rel="stylesheet" href="../stylesheet/afspraakInfo.css">
 </head>
 
 <body>
@@ -58,7 +27,7 @@ include "include/head.php";
             <h2>Gegevens wijzigen</h2>
             <i class="fas fa-times" style="color: orangered; cursor: pointer" id="popupClose"></i>
         </div>
-        <form method="post" action="process/changeAfspraak.php">
+        <form method="post" action="../process/changeAfspraak.php">
             <input type="text" placeholder="Titel" name="title" value="<?php echo $afspraak->title ?>">
             <input type="date" name="date" value="<?php echo $afspraak->date ?>">
             <div id="timeContainer">
@@ -80,11 +49,11 @@ include "include/head.php";
 </div>
 <div id="container">
     <?php
-    include "include/sidebar.php";
+    include "../include/sidebar.php";
     ?>
 
     <div id="main" style="position: relative">
-        <h1 class="animate__animated animate__jackInTheBox pageTitle">Afspraak van <span><a style="text-decoration: none; color: #3db2d4;" href="klantenInfo.php?k=<?php echo $klant->id ?>"><?php echo $klant->name ?></a></span> op <?php echo $afspraak->getDateInString() ?></h1>
+        <h1 class="animate__animated animate__jackInTheBox pageTitle">Afspraak van <span><a style="text-decoration: none; color: #3db2d4;" href="../klantenInfo/?k=<?php echo $klant->id ?>"><?php echo $klant->name ?></a></span> op <?php echo $afspraak->getDateInString() ?></h1>
         <?php
 
             if (isset($afspraak->beginTime) && isset($afspraak->endTime)){
@@ -102,16 +71,16 @@ include "include/head.php";
         <p><?php echo $afspraak->content ?></p>
 
         <div style="" id="changeButtons">
-            <a style="color: orangered" href="process/deleteAfspraak.php?a=<?php echo $afspraak->id ?>&k=<?php echo $klant->id ?>">Verwijder afspraak</a>
+            <a style="color: orangered" href="../process/deleteAfspraak.php?a=<?php echo $afspraak->id ?>&k=<?php echo $klant->id ?>">Verwijder afspraak</a>
             <a id="wijzig">Wijzig afspraak</a>
         </div>
     </div>
 </div>
 </body>
-<script src="script/afspraakInfo.js"></script>
+<script src="../script/afspraakInfo.js"></script>
 </html>
 <?php
 } else {
-    header("location: login.php");
+    header("location: ../login/");
 }
 

@@ -2,27 +2,27 @@
 session_start();
 
 if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
-    include "include/config.php";
+    include "../include/config.php";
 
     if (isset($_GET['a']) == false){
-        header("location: news.php");
+        header("location: ../index.php");
     } else {
         $result = $conn->query("SELECT * FROM nieuws WHERE id = " . $_GET['a']);
         if ($result->num_rows == 0) {
-            header("location: news.php");
+            header("location: ../index.php");
         }
     }
     ?>
     <html>
 
     <?php
-    include "include/head.php";
+    include "../include/head.php";
     ?>
 
     <head>
-        <link rel="stylesheet" href="stylesheet/klantenInfo.css">
-        <link rel="stylesheet" href="stylesheet/afspraakInfo.css">
-        <link rel="stylesheet" href="stylesheet/article.css">
+        <link rel="stylesheet" href="../stylesheet/klantenInfo.css">
+        <link rel="stylesheet" href="../stylesheet/afspraakInfo.css">
+        <link rel="stylesheet" href="../stylesheet/article.css">
     </head>
 
     <body>
@@ -32,7 +32,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                 <h2>Artikel wijzigen</h2>
                 <i class="fas fa-times" style="color: orangered; cursor: pointer" id="popupClose"></i>
             </div>
-            <form method="post" action="process/changeArticle.php">
+            <form method="post" action="../process/changeArticle.php">
                 <?php
                     $result = $conn->query("SELECT * FROM nieuws WHERE id = " . $_GET['a']);
                     if ($result->num_rows > 0) {
@@ -58,7 +58,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
     </div>
     <div id="container">
         <?php
-        include "include/sidebar.php";
+        include "../include/sidebar.php";
         ?>
 
         <div id="main" style="position: relative">
@@ -84,7 +84,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
 
                                 if (!empty($row['image_name'])){
                                     ?>
-                                        <img style="height: 200px; max-width: 100%; overflow: hidden; border-radius: 8px" src="process/newsImages/<?php echo $row['image_name'] ?>">
+                                        <img style="height: 200px; max-width: 100%; overflow: hidden; border-radius: 8px" src="../process/newsImages/<?php echo $row['image_name'] ?>">
                                     <?php
                                 }
                             ?>
@@ -93,7 +93,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                             <p><?php echo $row['content'] ?></p>
 
                             <div style="" id="changeButtons">
-                                <a style="color: orangered" href="process/deleteArticle.php?a=<?php echo $row['id'] ?>">Verwijder artikel</a>
+                                <a style="color: orangered" href="../process/deleteArticle.php?a=<?php echo $row['id'] ?>">Verwijder artikel</a>
                                 <a id="wijzig">Wijzig artikel</a>
                             </div>
                         <?php
@@ -105,11 +105,11 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
         </div>
     </div>
     </body>
-    <script src="script/afspraakInfo.js"></script>
-    <script src="script/article.js"></script>
+    <script src="../script/afspraakInfo.js"></script>
+    <script src="../script/article.js"></script>
     </html>
     <?php
 } else {
-    header("location: login.php");
+    header("location: ../login/");
 }
 

@@ -8,12 +8,12 @@ if (isset($_POST['username']) && isset($_POST['password'])){
     if ($result->num_rows > 0) {
 
         $_SESSION['status'] = 'true';
-        header("location: ../home.php");
+        header("location: ../index.php");
 
     } else {
-        header("location: ../login.php");
+        header("location: ../index.php");
     }
 
 } else {
-    header("location: ../login.php");
+    header("location: ../index.php");
 }

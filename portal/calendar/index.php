@@ -1,7 +1,9 @@
 <?php
 session_start();
+header('Content-type: text/calendar; charset=utf-8');
+header('Content-Disposition: inline; filename=calendar.ics');
 if (isset($_GET['key']) && $_GET['key'] == '2xAmwGpRudYeVj8sr5bKKGU'){
-    include "include/config.php";
+    include "../include/config.php";
 
     $sql = "SELECT * FROM afspraken";
     $result = $conn->query($sql);
@@ -9,7 +11,7 @@ if (isset($_GET['key']) && $_GET['key'] == '2xAmwGpRudYeVj8sr5bKKGU'){
 
         echo "BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Office Holidays Ltd.//EN
+PRODID:-//Sportmassage Nootdorp//EN
 X-WR-CALNAME:Sportmassage Nootdorp Afspraken
 X-WR-CALDESC:Sportmassage Nootdorp Afspraken. Tommie Ruijgrok © 2021.
 REFRESH-INTERVAL;VALUE=DURATION:PT48H
@@ -41,7 +43,7 @@ CLASS:PUBLIC
 UID:SPORTMASSAGENOOTDORP" . $row['id'] . "
 CREATED:20211020T63750Z
 DESCRIPTION:" . strip_tags($row['content']) . "
-URL:https://sportmassagenootdorp.nl/portal/afspraakInfo.php?a=" . $row['id'] ."
+URL:https://sportmassagenootdorp.nl/portal/index.php?a=" . $row['id'] ."
 DTSTART;VALUE=DATE:" . date('Ymd', strtotime($row['date'])) . $beginTime . "
 DTEND;VALUE=DATE:" . date('Ymd', strtotime($row['date']))  . $endTime . "
 PRIORITY:5
@@ -52,5 +54,5 @@ END:VEVENT";
         }
     }
 }  else {
-    header("location: login.php");
+    header("location: ../login/");
 }

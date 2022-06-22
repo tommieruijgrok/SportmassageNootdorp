@@ -20,7 +20,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
     }
 
 } else {
-    header("location: ../login.php");
+    header("location: ../login");
 }
 
 

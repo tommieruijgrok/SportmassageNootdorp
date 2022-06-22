@@ -1,4 +1,6 @@
 <?php
+$testFun = "CONN IS GOOD";
+
 function dateToString($date){
     $months = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"];
 
@@ -10,20 +12,21 @@ function monthToName($month){
 
     return $months[$month - 1];
 }
+function getWeekDay($date){
+    $days = ["zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"];
+    return $days[date('w', strtotime($date))];
+}
 
 function isInTheFuture($dateInQuestion){
-    $date_now = date("m/d/Y");
-    $date = date_create($dateInQuestion);
-    $date_convert = date_format($date, "m/d/Y");
+    $today = date('Y-m-d');
+    $dateInQuestion = date('Y-m-d', strtotime($dateInQuestion));
 
-    if ($date_now == $date_convert){
+    if ($today == $dateInQuestion){
         return 'today';
-    } else if ($date_now > $date_convert) {
-        return 'true';
-        //echo "YEAH";
+    } else if ($today < $dateInQuestion){
+        return true;
     } else {
-        return 'false';
-        //echo "NO";
+        return false;
     }
 }
 
@@ -58,4 +61,14 @@ function isEndTimeGreaterThatBeginTime($beginTime,$endTime){
     else {
         return 1;
     }
+}
+
+function getStartAndEndDate($week, $year)
+{
+    $dateTime = new DateTime();
+    $dateTime->setISODate($year, $week);
+    $result['start_date'] = $dateTime->format('Y-m-d');
+    $dateTime->modify('+6 days');
+    $result['end_date'] = $dateTime->format('Y-m-d');
+    return $result;
 }

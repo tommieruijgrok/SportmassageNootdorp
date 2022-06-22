@@ -9,25 +9,31 @@ class Klant
     public $email;
     public $adress;
 
-    function __construct($id, $name, $phone = null, $email = null, $adress = null){
+    function __construct($id){
+        include "../include/config.php";
         $this->id = $id;
-        $this->name = $name;
 
-        $this->phone = $phone;
-        $this->email = $email;
-        $this->adress = $adress;
+        $result = $conn->query("SELECT * FROM klanten WHERE id = " . $id . " LIMIT 1");
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $this->name = $row['naam'];
+
+                $this->phone = $row['telefoonnummer'];
+                $this->email = $row['email'];
+                $this->adress = $row['adres'];
+            }
+        }
+
     }
 
-    public function setPhone($phone){
-        $this->phone = $phone;
-    }
-
-    public function setEmail($email){
-        $this->email = $email;
-    }
-
-    public function setAdress($adress){
-        $this->adress = $adress;
+    function amountOfAppointments(){
+        include "../include/config.php";
+        $result = $conn->query("SELECT COUNT(*) as total FROM afspraken WHERE klant = " . $this->id);
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                return $row['total'];
+            }
+        }
     }
 
 }

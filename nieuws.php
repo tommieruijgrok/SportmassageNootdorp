@@ -78,10 +78,13 @@
                             while ($row = $result->fetch_assoc()) {
                                 ?>
                                 <a href="artikel.php?a=<?php echo $row['id'] ?>">
-                                <div class="newsArticle" <?php if($row['image_name'] != ''){ ?>style="background-image: url('portal/process/newsImages/<?php echo $row['image_name']; ?>')"<?php } ?>>
-                                    <div class="articleAbsoluteContainer" <?php if($row['image_name'] == ''){ ?>style="text-shadow: unset"<?php } ?>>
+                                <div class="newsArticle">
+                                    <div class="articleImageContainer" <?php if($row['image_name'] != ''){ ?>style="background-image: url('portal/process/newsImages/<?php echo $row['image_name']; ?>')"<?php } ?>>
+
+                                    </div>
+                                    <div class="articleAbsoluteContainer">
                                         <p class="article_title"><?php echo $row['article_title'] ?></p>
-                                        <p class="article_date" <?php if($row['image_name'] != ''){ ?>style="color: #a5a5a5"<?php } ?>><?php echo dateToString($row['date']) ?></p>
+                                        <p class="article_date"><?php echo dateToString($row['date']) ?></p>
                                     </div>
                                 </div>
                                 </a>

@@ -1,34 +1,34 @@
 <?php
-include "../include/functions.php";
 class Afspraak
 {
     public $id;
     public $title;
     public $date;
+    public $klant;
     public $beginTime;
     public $endTime;
     public $content;
     public $price;
 
-    function __construct($id, $title, $date, $content, $beginTime = null, $endTime = null, $price = null){
+    function __construct($id){
+        include "../include/config.php";
         $this->id = $id;
-        $this->title = $title;
-        $this->date = $date;
-        $this->content = $content;
+        $result = $conn->query("SELECT * FROM afspraken WHERE id = " . $id . " LIMIT 1");
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
 
-        $this->beginTime = $beginTime;
-        $this->endTime = $endTime;
-        $this->price = $price;
-    }
+                $this->title = $row['title'];
+                $this->date = $row['date'];
+                $this->content = $row['content'];
+                $this->klant = $row['klant'];
+                $this->beginTime = $row['beginTime'];
+                $this->endTime = $row['endTime'];
+                $this->price = $row['price'];
 
-    public function setBeginTime($beginTime){
-        $this->beginTime = $beginTime;
-    }
-    public function setEndTime($endTime){
-        $this->endTime = $endTime;
-    }
-    public function setPrice($price){
-        $this->price = $price;
+            }
+        }
+
+
     }
 
     public function getDateInString(){
@@ -47,6 +47,6 @@ class Afspraak
         $start = strtotime($this->beginTime);
         $end = strtotime($this->endTime);
         $mins = ($end - $start) / 60;
-        echo $mins;
+        return $mins;
     }
 }

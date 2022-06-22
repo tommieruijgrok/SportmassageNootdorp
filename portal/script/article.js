@@ -13,7 +13,7 @@ document.getElementById("visibilityToggle").addEventListener('click', function (
     var dataString = 'id=' + urlParams.get('a');
     $.ajax({
         type:'post',
-        url:'process/changeArticleVisibility.php',
+        url:'../process/changeArticleVisibility.php',
         data:dataString,
         cache:false,
         success: function (html){

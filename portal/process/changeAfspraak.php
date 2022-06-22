@@ -10,22 +10,22 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
             if (isset($_POST['beginTime']) && $_POST['beginTime'] != '' && isset($_POST['endTime']) && $_POST['endTime'] != ''){
                 if (isEndTimeGreaterThatBeginTime($_POST['beginTime'], $_POST['endTime'])){
                     if ($conn->query("UPDATE afspraken SET beginTime = '" . $_POST['beginTime'] . "', endTime = '" . $_POST['endTime'] . "' WHERE id = " . $_POST['id']) === TRUE) {
-                        header("location: ../afspraakInfo.php?a=" . $_POST['id']);
+                        header("location: ../index.php?a=" . $_POST['id']);
                     }
                 } else {
-                    header("location: ../afspraakInfo.php?a=" . $_POST['id'] . "?error=De eindtijd moet wel later zijn dan de begintijd.");
+                    header("location: ../index.php?a=" . $_POST['id'] . "?error=De eindtijd moet wel later zijn dan de begintijd.");
                 }
             } else {
-                header("location: ../afspraakInfo.php?a=" . $_POST['id']);
+                header("location: ../index.php?a=" . $_POST['id']);
             }
         } else {
-            header("location: ../klanten.php");
+            header("location: ../index.php");
         }
     } else {
-        header("location: ../klanten.php?error=Er ging iets mis, probeer het opnieuw!");
+        header("location: ../index.php?error=Er ging iets mis, probeer het opnieuw!");
     }
 } else {
-    header("location: ../login.php");
+    header("location: ../index.php");
 }
 
 

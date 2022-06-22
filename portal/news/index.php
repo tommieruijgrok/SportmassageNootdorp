@@ -1,23 +1,23 @@
 <?php
 session_start();
-include "include/config.php";
+include "../include/config.php";
 if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
 
 
     ?>
     <html>
     <?php
-        include "include/head.php";
+        include "../include/head.php";
     ?>
     <head>
-        <link rel="stylesheet" href="stylesheet/news.css">
+        <link rel="stylesheet" href="../stylesheet/news.css">
     </head>
     <body>
 
     <div id="container">
 
         <?php
-        include "include/sidebar.php";
+        include "../include/sidebar.php";
         ?>
 
         <div id="main">
@@ -29,7 +29,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
             </div>
             <div id="addNews" class="inactive">
                 <h3>Voeg nieuwsbericht toe</h3>
-                <form method="post" action="process/addNews.php" enctype="multipart/form-data">
+                <form method="post" action="../process/addNews.php" enctype="multipart/form-data">
                     <input type="text" name="article_title" placeholder="Titel voor het artikel">
                     <input type="date" name="article_date" placeholder="Datum">
                     <textarea placeholder="Inhoud" name="article_content"></textarea>
@@ -52,14 +52,14 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                             ?>
                                 <div class="newsArticle" <?php
                                     if (!empty($row['image_name'])){
-                                        ?>style="background-image: url('process/newsImages/<?php echo $row['image_name']; ?>')"<?php
+                                        ?>style="background-image: url('../process/newsImages/<?php echo $row['image_name']; ?>')"<?php
                                     }
                                 ?>>
                                     <div class="cornerButtons">
                                         <?php
                                             if ($row['visibility'] == 'active'){
                                                 ?>
-                                                <a href="../artikel.php?a=<?php echo $row['id'] ?>" target="_blank"><i class="fas fa-globe"></i></a>
+                                                <a href="../../../artikel.php?a=<?php echo $row['id'] ?>" target="_blank"><i class="fas fa-globe"></i></a>
                                                 <?php
                                             } else if ($row['visibility'] == 'inactive'){
                                                 ?>
@@ -70,8 +70,8 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
 
                                     </div>
                                     <div class="articleAbsoluteContainer">
-                                        <a href="article.php?a=<?php echo $row['id'] ?>"><p class="article_title"><?php echo $row['article_title'] ?></p></a>
-                                        <p class="article_date"><?php echo dateToString($row['date']) ?></p>
+                                        <a href="../article/index.php?a=<?php echo $row['id'] ?>"><p class="article_title"><?php echo $row['article_title'] ?></p>
+                                        <p class="article_date"><?php echo dateToString($row['date']) ?></p></a>
                                     </div>
                                 </div>
                             <?php
@@ -84,9 +84,9 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
     </div>
 
     </body>
-    <script src="script/news.js"></script>
+    <script src="../script/news.js"></script>
     </html>
     <?php
 } else {
-    header("location: login.php");
+    header("location: ../login/");
 }

@@ -1,21 +1,21 @@
 <?php
 session_start();
 if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
-    include "include/config.php";
+    include "../include/config.php";
     ?>
     <html>
     <?php
-    include "include/head.php";
+    include "../include/head.php";
     ?>
     <head>
-        <link rel="stylesheet" href="stylesheet/finance.css">
+        <link rel="stylesheet" href="../stylesheet/finance.css">
     </head>
     <body>
 
     <div id="container">
 
         <?php
-        include "include/sidebar.php";
+        include "../include/sidebar.php";
         ?>
 
         <div id="main">
@@ -28,7 +28,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
     </html>
     <?php
 } else {
-    header("location: login.php");
+    header("location: ../login/");
 }
 
 ?>

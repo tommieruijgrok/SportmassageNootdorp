@@ -1,0 +1,110 @@
+#calender table {
+    width: 500px;
+}
+
+#calender table td {
+    text-align: center;
+    font-weight: bold;
+    background-color: #e9e9e9;
+    border-radius: 4px;
+    width: 50px;
+    cursor: pointer;
+}
+
+#calenderLegenda p {
+    font-size: 12px;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 0px;
+}
+
+th {
+    font-size: 12px;
+}
+
+.otherMonth {
+    cursor: unset !important;
+    color: #8c8c8c;
+    font-weight: normal !important;
+}
+
+.appointmentsSet {
+    background-color: #FFA500 !important;
+    color: white;
+}
+
+.appointmentsNotAllowed {
+    background-color: #d03b03 !important;
+    color: white;
+}
+
+.noAppointments {
+    background-color: mediumseagreen !important;
+    color: white;
+}
+
+.weekNumber {
+    font-size: 10px;
+    background-color: unset !important;
+    width: 20px !important;
+}
+
+#agendaDetails {
+    background-color: #222222;
+    border-radius: 8px;
+    padding: 20px;
+    color: white;
+}
+
+#agendaDetailsTitle {
+    margin: 0px;
+}
+
+#openClosedButton {
+    width: fit-content;
+    padding: 10px;
+    font-size: 12px;
+    color: white;
+    background-color: #d03b03;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#openClosedButton p {
+    margin: 0px;
+}
+
+.openClosedButtonOpen {
+    background-color: mediumseagreen !important;
+}
+
+#agendaDetailsNoFound {
+    color: #a5a5a5;
+    font-size: 12px;
+}
+
+#agendaDetailsOutput {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+}
+
+.appointmentOutputEl {
+    background-color: #434343;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.appointmentOutputEl h4 {
+    margin: 0px;
+}
+
+.appointmentOutputElTime {
+    font-size: 12px;
+    margin: 0px;
+    color: #a5a5a5;
+}

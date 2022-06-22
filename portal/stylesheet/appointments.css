@@ -1,0 +1,40 @@
+#appointmentsGrid {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(350px, 1fr) );
+    gap: 20px;
+}
+
+#appointmentsGrid a {
+    text-decoration: none;
+    color: unset;
+}
+
+.appointment {
+    background-color: #222222;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.appointment:hover {
+    transform: translate(0, -6px);
+}
+
+.dateIndicator {
+    background-color: #d03b03;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.dateIndicator p {
+    margin: 0px;
+    font-size: 14px;
+}
+
+.appointmentTime {
+    color: #a5a5a5;
+    margin: 0px;
+}

@@ -7,7 +7,6 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" href="img/favicon2.png" type="image/png"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,6 +50,11 @@
                             <img src="img/arrow.png">
                         </div>
                         <hr style="height:1px;border-width:0;color:gray;background-color:gray">
+                        <div onclick="scrollToDiv('location')">
+                            <p>Locatie</p>
+                            <img src="img/arrow.png">
+                        </div>
+                        <hr style="height:1px;border-width:0;color:gray;background-color:gray">
                         <div onclick="scrollToDiv('price')">
                             <p>Tarieven</p>
                             <img src="img/arrow.png">
@@ -69,7 +73,6 @@
 
 
                     </div>
-                    <p style="padding: 15px 10px 0px 10px; margin: 0px; color: black"><span style="font-weight: bold; ">Massage op elke locatie!</span><br>Wil je een massage, maar kun of wil je de deur niet uit? Geen probleem. Ik masseer aan huis, op het werk, bij events of op een andere geschikte locatie.</p>
                     <div id="contact">
                         <h2>Contact</h2>
                         <p>Voor vragen of voor het maken van een afspraak, neem dan contact met mij op.</p>
@@ -119,6 +122,21 @@
                         </div>
                     </section>
 
+                    <section id="location">
+                        <h2 style="margin-bottom: 5px">Locatie</h2>
+                        <p style="margin-top: 0px">De praktijk is gevestigd bij Sportstudio Sansi in Nootdorp.</p>
+                        <p>De sportmassages worden verzorgd op dinsdagavond, vrijdagavond en zaterdagochtend.<br>
+                            Voor vragen of voor het maken van een massage-afspraak, neem dan contact op via:<br>
+                            <a href="https://wa.me/31653576207" style="color: unset">06-53576207 (WhatsApp)</a><br>
+                            <a style="color: unset" href="mailto:info@sportmassagenootdorp.nl">info@sportmassagenootdorp.nl</a>
+                        </p>
+                        <p>Sportmassage Nootdorp (Sportstudio Sansi)<br>
+                            Molenweg 5<br>
+                            2631 AA Nootdorp</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2454.0718079089206!2d4.390494015432383!3d52.04200507929506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5c9f43e2c563b%3A0x31e9d664363fe125!2sSportmassage%20Nootdorp!5e0!3m2!1snl!2snl!4v1643470398987!5m2!1snl!2snl" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <p><span style="font-weight: bold; ">Massage op elke locatie!</span><br>Wil je een massage, maar kun of wil je de deur niet uit? Geen probleem. Ik masseer aan huis, op het werk, bij events of op een andere geschikte locatie.</p>
+                    </section>
+
                     <section id="price">
                         <h2>Tarieven</h2>
                         <div id="priceMainGrid">
@@ -136,15 +154,15 @@
                                 <div class="priceGrid priceStrip">
                                     <div class="priceBlock">
                                         <b><p>5 strippen van<br> 30 minuten</p></b>
-                                        <p>€120</p>
+                                        <p>€135</p>
                                     </div>
                                     <div class="priceBlock">
                                         <b><p>5 strippen van<br> 45 minuten</p></b>
-                                        <p>€160</p>
+                                        <p>€180</p>
                                     </div>
                                     <div class="priceBlock">
                                         <b><p>5 strippen van<br> 60 minuten</p></b>
-                                        <p>€200</p>
+                                        <p>€225</p>
                                     </div>
                                 </div>
                             </div>

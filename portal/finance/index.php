@@ -1,39 +1,23 @@
 <?php
 session_start();
 if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
-    include "include/config.php";
+    include "../include/config.php";
     ?>
     <html>
 
     <?php
-    include "include/head.php";
+    include "../include/head.php";
     ?>
 
     <head>
-        <link rel="stylesheet" href="stylesheet/general.css">
-        <link rel="stylesheet" href="stylesheet/finance.css">
+        <link rel="stylesheet" href="../stylesheet/general.css">
+        <link rel="stylesheet" href="../stylesheet/finance.css">
     </head>
 
     <body>
-    <div id="popup" class="inactive">
-        <div id="popupInner">
-            <div style="display: flex; align-items: center; justify-content: space-between">
-                <h2>Gegevens wijzigen</h2>
-                <i class="fas fa-times" style="color: orangered; cursor: pointer" id="popupClose"></i>
-            </div>
-            <form method="post" action="process/changeAfspraak.php">
-                <input type="text" placeholder="Titel" name="title" value="<?php echo $afspraakTitel ?>">
-                <input type="date" name="date" value="<?php echo $afspraakDatum ?>">
-                <textarea placeholder="Tekst" name="content"><?php echo strip_tags($afspraakContent) ?></textarea>
-                <input type="number" step="any" placeholder="Betaalde prijs" name="price" value="<?php echo floatval(str_replace(',', '.', $afspraakPrice)) ?>">
-                <input type="hidden" name="id" value="<?php echo $afspraakId ?>">
-                <input type="submit" value="Wijzigen" >
-            </form>
-        </div>
-    </div>
     <div id="container">
         <?php
-        include "include/sidebar.php";
+        include "../include/sidebar.php";
         ?>
 
         <div id="main" style="position: relative">
@@ -114,7 +98,8 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                             $resultA = $conn->query($sqlA);
                             if ($resultA->num_rows > 0) {
                                 while ($rowA = $resultA->fetch_assoc()) {
-                                    if ($rowA['price'] > 0){
+                                    if (isset($rowA['price'])){
+                                        //- getallen
                                         ?>
 
                                         <div class="monthRecords">
@@ -127,7 +112,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
                                                 }
                                             }
                                             ?>
-                                            <a href="afspraakInfo.php?a=<?php echo $rowA['id'] ?>"><?php echo "Afspraak van " . $klantNaam . " op " . dateToString($rowA['date']); ?></a>
+                                            <a href="../afspraakInfo/index.php?a=<?php echo $rowA['id'] ?>"><?php echo "Afspraak van " . $klantNaam . " op " . dateToString($rowA['date']); ?></a>
                                             <p>€<?php echo $rowA['price']; ?></p>
                                         </div>
 
@@ -152,9 +137,9 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
         </div>
     </div>
     </body>
-    <script src="script/finance.js"></script>
+    <script src="../script/finance.js"></script>
     </html>
     <?php
 } else {
-    header("location: login.php");
+    header("location: ../login");
 }

@@ -311,6 +311,7 @@ header p {
         grid-template-rows: 1fr;
         padding: 20px 30px;
         gap: 20px;
+        max-width: 100vw;
     }
 
     #stickyMenu {

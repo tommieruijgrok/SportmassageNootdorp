@@ -5,9 +5,9 @@ if (isset($_SESSION['status']) && $_SESSION['status'] == 'true'){
     if (isset($_GET['a'])){
 
         $conn->query("DELETE FROM nieuws WHERE id = " . $_GET['a']);
-        header("location: ../news.php");
+        header("location: ../index.php");
 
     }
 } else {
-    header("location: ../login.php");
+    header("location: ../index.php");
 }
