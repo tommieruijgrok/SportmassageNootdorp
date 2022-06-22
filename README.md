@@ -4,11 +4,11 @@ Ik heb voor sportmassagenootdorp.nl een informatiesite en een portal gemaakt. Op
 
 ![Screenshot](readme_ss_1.png)
 
-Ook kan hij nieuwartikelen die op de informatiesite worden weergeven toevoegen of aanpassen.
+Ook kan hij nieuwsartikelen die op de informatiesite worden weergeven toevoegen of aanpassen.
 
 ![Screenshot](readme_ss_2.png)
 
-Ook heeft hij een handig overzicht van de opkomende afspraken
+Ook heeft hij een handig overzicht van de toekomstige afspraken. Deze afspraken worden ook automatisch in zijn iPhone agenda gezet.
 
 ![Screenshot](readme_ss_3.png)
 
